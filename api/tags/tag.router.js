@@ -12,7 +12,7 @@ const {
     getLastTagValue,
  } = require("./tag.controller");
 
-router.post("/create", validate(createTagValidation, {}, {}), createTag);
+router.post("/create", validate(createTagValidation, {}, {}), Auth.validateRerquest, createTag);
 router.post("/create/value", validate(createTagValueValidation, {}, {}), Auth.validateRerquest, createTagValue);
 router.post("/get/value", validate(getLastTagValueValidation, {}, {}), Auth.validateRerquest,  getLastTagValue);
 

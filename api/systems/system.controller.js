@@ -9,8 +9,9 @@ module.exports = {
         const customerId = req.query.customerId;
         const name = req.query.name;
         const description = req.query.description;
+        const apiKey =req.header('x-api-key');
         const body = {
-            customerId,
+            apiKey,
             name,
             description
         };
@@ -29,7 +30,6 @@ module.exports = {
         });
     },
     listSystems: (req, res) => {
-        console.log("Listing systems....");
         list((err, results) => {
             if (err) {
                 return res.status(500).json({
@@ -45,8 +45,9 @@ module.exports = {
     },
     listSystemsByCustomer: (req, res) => {
         const customerId = req.query.customerId;
+        const apiKey =req.header('x-api-key');
         const data = {
-            customerId,
+            apiKey,
         };
         listByCustomer(data, (err, results) => {
             if (err) {

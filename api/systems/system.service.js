@@ -1,11 +1,19 @@
 const pool = require("../../config/database");
+const {
+  getByApiKey
+} = require('../customers/customer.service');
 
 module.exports = {
     create : (data, callBack) => {
-        pool.query(
+        getByApiKey(data, (err, results) => {
+          if (err) {
+            callBack(err);
+          }
+          let user = results[0];
+          pool.query(
             `insert into systems(customer_id, name, description) values(?,?,?)`,
             [
-              data.customerId,
+              user.id,
               data.name,
               data.description
             ],
@@ -16,6 +24,7 @@ module.exports = {
               callBack(null, results);
             }
           );
+        })
     },
     list: (callBack) => {
         pool.query(
@@ -29,15 +38,21 @@ module.exports = {
         );
     },
     listByCustomer: (data, callBack) => {
-      pool.query(
-        'select * from `systems` where `customer_id`=?',
-        data.customerId,
-        (error, results, fields) => {
-          if (error) {
-            callBack(error);
-          }
-          callBack(null, results);
+      getByApiKey(data, (err, results) => {
+        if (err) {
+          callBack(err);
         }
-      );
+        let user = results[0];
+        pool.query(
+          'select * from `systems` where `customer_id`=?',
+          user.id,
+          (error, results, fields) => {
+            if (error) {
+              callBack(error);
+            }
+            callBack(null, results);
+          }
+        );
+      })
     },
 };

@@ -5,6 +5,7 @@ const { ValidationError } = require('express-validation')
 const customerRouter = require("./api/customers/customer.router");
 const systemRouter = require("./api/systems/system.router");
 const tagRouter = require("./api/tags/tag.router");
+const apiKeyRouter = require("./api/api-keys/api-key.router");
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -13,6 +14,7 @@ app.use(express.urlencoded({
 app.use("/api/customer", customerRouter);
 app.use("/api/system", systemRouter);
 app.use("/api/tag", tagRouter);
+app.use("/api/key", apiKeyRouter);
 app.use(function(err, req, res, next) {
     if (err instanceof ValidationError) {
       return res.status(err.statusCode).json(err);

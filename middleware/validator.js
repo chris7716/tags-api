@@ -13,19 +13,79 @@ const createCustomerValidation = {
 };
 const createSystemValidation = {
   query: Joi.object({
-    customerId: Joi.string()
-      .required(),
     name: Joi.string()
       .required(),
     description: Joi.string()
       .allow(),
   }),
+  
+  headers: Joi.object({
+    'x-api-key': Joi.string()
+      .required(),
+    host: Joi.string()
+      .allow(),
+    connection: Joi.string()
+      .allow(),
+    'content-length': Joi.string()
+      .allow(),
+    'postman-token': Joi.string()
+      .allow(),
+    'cache-control': Joi.string()
+      .allow(),
+    'user-agent': Joi.string()
+      .allow(),
+    'content-type': Joi.string()
+      .allow(),
+    accept: Joi.string()
+      .allow(),
+    origin: Joi.string()
+      .allow(),
+    'sec-fetch-site': Joi.string()
+      .allow(),
+    'sec-fetch-mode': Joi.string()
+      .allow(),
+    'sec-fetch-dest': Joi.string()
+      .allow(),
+    'accept-encoding': Joi.string()
+      .allow(),
+    'accept-language': Joi.string()
+      .allow(),
+  })
 };
 const listSystemByCustomerValidation = {
-  query: Joi.object({
-    customerId: Joi.string()
+  
+  headers: Joi.object({
+    'x-api-key': Joi.string()
       .required(),
-  }),
+    host: Joi.string()
+      .allow(),
+    connection: Joi.string()
+      .allow(),
+    'content-length': Joi.string()
+      .allow(),
+    'postman-token': Joi.string()
+      .allow(),
+    'cache-control': Joi.string()
+      .allow(),
+    'user-agent': Joi.string()
+      .allow(),
+    'content-type': Joi.string()
+      .allow(),
+    accept: Joi.string()
+      .allow(),
+    origin: Joi.string()
+      .allow(),
+    'sec-fetch-site': Joi.string()
+      .allow(),
+    'sec-fetch-mode': Joi.string()
+      .allow(),
+    'sec-fetch-dest': Joi.string()
+      .allow(),
+    'accept-encoding': Joi.string()
+      .allow(),
+    'accept-language': Joi.string()
+      .allow(),
+  })
 };
 const createTagValidation = {
   query: Joi.object({
@@ -36,6 +96,39 @@ const createTagValidation = {
     description: Joi.string()
       .allow(),
   }),
+  
+  headers: Joi.object({
+    'x-api-key': Joi.string()
+      .required(),
+    host: Joi.string()
+      .allow(),
+    connection: Joi.string()
+      .allow(),
+    'content-length': Joi.string()
+      .allow(),
+    'postman-token': Joi.string()
+      .allow(),
+    'cache-control': Joi.string()
+      .allow(),
+    'user-agent': Joi.string()
+      .allow(),
+    'content-type': Joi.string()
+      .allow(),
+    accept: Joi.string()
+      .allow(),
+    origin: Joi.string()
+      .allow(),
+    'sec-fetch-site': Joi.string()
+      .allow(),
+    'sec-fetch-mode': Joi.string()
+      .allow(),
+    'sec-fetch-dest': Joi.string()
+      .allow(),
+    'accept-encoding': Joi.string()
+      .allow(),
+    'accept-language': Joi.string()
+      .allow(),
+  })
 };
 const createTagValueValidation = {
   query: Joi.object({
@@ -44,6 +137,38 @@ const createTagValueValidation = {
     value: Joi.string()
       .allow(),
   }),
+  headers: Joi.object({
+    'x-api-key': Joi.string()
+      .required(),
+    host: Joi.string()
+      .allow(),
+    connection: Joi.string()
+      .allow(),
+    'content-length': Joi.string()
+      .allow(),
+    'postman-token': Joi.string()
+      .allow(),
+    'cache-control': Joi.string()
+      .allow(),
+    'user-agent': Joi.string()
+      .allow(),
+    'content-type': Joi.string()
+      .allow(),
+    accept: Joi.string()
+      .allow(),
+    origin: Joi.string()
+      .allow(),
+    'sec-fetch-site': Joi.string()
+      .allow(),
+    'sec-fetch-mode': Joi.string()
+      .allow(),
+    'sec-fetch-dest': Joi.string()
+      .allow(),
+    'accept-encoding': Joi.string()
+      .allow(),
+    'accept-language': Joi.string()
+      .allow(),
+  })
 };
 const getLastTagValueValidation = {
   query: Joi.object({
@@ -51,6 +176,49 @@ const getLastTagValueValidation = {
       .required(),
     value: Joi.string()
       .allow(),
+  }),
+  
+  headers: Joi.object({
+    'x-api-key': Joi.string()
+      .required(),
+    host: Joi.string()
+      .allow(),
+    connection: Joi.string()
+      .allow(),
+    'content-length': Joi.string()
+      .allow(),
+    'postman-token': Joi.string()
+      .allow(),
+    'cache-control': Joi.string()
+      .allow(),
+    'user-agent': Joi.string()
+      .allow(),
+    'content-type': Joi.string()
+      .allow(),
+    accept: Joi.string()
+      .allow(),
+    origin: Joi.string()
+      .allow(),
+    'sec-fetch-site': Joi.string()
+      .allow(),
+    'sec-fetch-mode': Joi.string()
+      .allow(),
+    'sec-fetch-dest': Joi.string()
+      .allow(),
+    'accept-encoding': Joi.string()
+      .allow(),
+    'accept-language': Joi.string()
+      .allow(),
+  })
+};
+const createApiKeyValidatoin = {
+  query: Joi.object({
+    email: Joi.string()
+      .required()
+      .email(),
+    assignedIp: Joi.string()
+      .regex(/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
+      .required(),
   }),
 };
 
@@ -61,4 +229,5 @@ module.exports = {
   createTagValidation,
   createTagValueValidation,
   getLastTagValueValidation,
+  createApiKeyValidatoin,
 };
