@@ -20,7 +20,6 @@ module.exports = {
         console.log(timestamp);
         create(data, (err, results) => {
             if (err) {
-                console.log(err);
                 return res.status(500).json({
                 success: 0,
                 message: "Database connection errror"
@@ -43,7 +42,6 @@ module.exports = {
         };
         createTagValue(data, (err, results) => {
             if (err) {
-                console.log(err);
                 return res.status(500).json({
                 success: 0,
                 message: "Database connection errror"
@@ -67,7 +65,6 @@ module.exports = {
         };
         getLastTagValueById(data, (err, results) => {
             if (err) {
-                console.log(err);
                 return res.status(500).json({
                 success: 0,
                 message: "Database connection errror"

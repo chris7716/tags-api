@@ -1,5 +1,8 @@
 const { Joi } = require('express-validation');
 
+/**
+ * Evaluates the validations for /api/customer/create
+ */
 const createCustomerValidation = {
   query: Joi.object({
     name: Joi.string()
@@ -11,6 +14,10 @@ const createCustomerValidation = {
       .required(),
   }),
 };
+
+/**
+ * Evaluates the validations for /api/system/create
+ */
 const createSystemValidation = {
   query: Joi.object({
     name: Joi.string()
@@ -52,6 +59,10 @@ const createSystemValidation = {
       .allow(),
   })
 };
+
+/**
+ * Evaluates the validations for /api/system/list/by-customer
+ */
 const listSystemByCustomerValidation = {
   
   headers: Joi.object({
@@ -87,6 +98,10 @@ const listSystemByCustomerValidation = {
       .allow(),
   })
 };
+
+/**
+ * Evaluates the validations for /api/tag/create
+ */
 const createTagValidation = {
   query: Joi.object({
     systemId: Joi.string()
@@ -130,6 +145,10 @@ const createTagValidation = {
       .allow(),
   })
 };
+
+/**
+ * Evaluates the validations for /api/tag/create/value
+ */
 const createTagValueValidation = {
   query: Joi.object({
     tagId: Joi.string()
@@ -170,6 +189,10 @@ const createTagValueValidation = {
       .allow(),
   })
 };
+
+/**
+ * Evaluates the validations for /api/tag/get/value
+ */
 const getLastTagValueValidation = {
   query: Joi.object({
     tagId: Joi.string()
@@ -211,6 +234,10 @@ const getLastTagValueValidation = {
       .allow(),
   })
 };
+
+/**
+ * Evaluates the validations for /api/key/create
+ */
 const createApiKeyValidatoin = {
   query: Joi.object({
     email: Joi.string()
