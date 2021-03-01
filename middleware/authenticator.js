@@ -1,3 +1,10 @@
+/**
+ * This middleware authenticates and authorizes the requests coming into
+ * the API.
+ * 
+ * @module authenticator
+ *
+ */
 const pool = require("../config/database");
 
 /**
@@ -7,8 +14,6 @@ const pool = require("../config/database");
  * @param {Object} req Request coming form client to the server.
  * @param {Object} response Response generated from server to the client.
  * @param {Object} next Next function to be excecuted.
- * 
- * @global
  */
 const validateRerquest = (req, response, next) => {
     let baseUrl = req.baseUrl;

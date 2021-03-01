@@ -1,3 +1,10 @@
+/**
+ * This middleware validates the requests coming into
+ * the API.
+ * 
+ * @module validator
+ *
+ */
 const { Joi } = require('express-validation');
 
 /**
