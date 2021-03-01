@@ -1,6 +1,6 @@
 /**
  * This router acts as the routing controller for requests coming into /api/key base url.
- * @module api-key-router
+ * @module api/api-keys/api-key-router
  */
 const router = require("express").Router();
 const { validate } = require('express-validation');

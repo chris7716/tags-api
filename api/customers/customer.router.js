@@ -1,6 +1,6 @@
 /**
  * This router acts as the routing controller for requests coming into /api/customer base url.
- * @module customer-router
+ * @module api/customers/customer-router
  */
 const router = require("express").Router();
 const { validate } = require('express-validation');

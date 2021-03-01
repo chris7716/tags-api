@@ -1,6 +1,6 @@
 /**
  * This controller acts as the controller for requests coming into /api/customer endpoints.
- * @module customer-controller
+ * @module api/customers/customer-controller
  *
  */
 const {

@@ -1,6 +1,6 @@
 /**
  * This service acts as the data access layer for System functionalities.
- * @module system-service
+ * @module api/systems/system-service
  *
  */
 const pool = require("../../config/database");

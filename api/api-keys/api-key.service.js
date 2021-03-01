@@ -1,6 +1,6 @@
 /**
  * This service acts as the data access layer for API Key functionalities.
- * @module api-key-service
+ * @module api/api-keys/api-key-service
  *
  */
 const { v4: uuidv4 } = require('uuid');

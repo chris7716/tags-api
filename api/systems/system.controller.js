@@ -1,6 +1,6 @@
 /**
  * This controller acts as the controller for requests coming into /api/system endpoints.
- * @module system-controller
+ * @module api/systems/system-controller
  *
  */
 const {

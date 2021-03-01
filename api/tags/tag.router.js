@@ -1,6 +1,6 @@
 /**
  * This router acts as the routing controller for requests coming into /api/tag base url.
- * @module tag-router
+ * @module api/tags/tag-router
  */
 const router = require("express").Router();
 const { validate } = require('express-validation');

@@ -1,6 +1,6 @@
 /**
  * This service acts as the data access layer for Tag functionalities.
- * @module tag-service
+ * @module api/tags/tag-service
  *
  */
 const pool = require('../../config/database');

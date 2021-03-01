@@ -1,6 +1,6 @@
 /**
  * This controller acts as the controller for requests coming into /api/tag endpoints.
- * @module tag-controller
+ * @module api/tags/tag-controller
  *
  */
 const {

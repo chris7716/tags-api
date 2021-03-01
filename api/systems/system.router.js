@@ -1,6 +1,6 @@
 /**
  * This router acts as the routing controller for requests coming into /api/system base url.
- * @module system-router
+ * @module api/systems/system-router
  */
 const router = require("express").Router();
 const { validate } = require('express-validation');

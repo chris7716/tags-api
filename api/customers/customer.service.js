@@ -1,6 +1,6 @@
 /**
  * This service acts as the data access layer for Customer functionalities.
- * @module customer-service
+ * @module api/customers/customer-service
  *
  */
 const pool = require("../../config/database");

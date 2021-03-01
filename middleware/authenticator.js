@@ -2,7 +2,7 @@
  * This middleware authenticates and authorizes the requests coming into
  * the API.
  * 
- * @module authenticator
+ * @module middleware/authenticator
  *
  */
 const pool = require("../config/database");

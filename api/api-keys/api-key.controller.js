@@ -1,6 +1,6 @@
 /**
  * This controller acts as the controller for requests coming into /api/key endpoints.
- * @module api-key-controller
+ * @module api/api-keys/api-key-controller
  */
 const {
     create
