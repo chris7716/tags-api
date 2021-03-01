@@ -2,7 +2,7 @@
  * 
  * Main configurations of the application are added in
  * this App.js file.
- * 
+ * @file app.js is the root of the application.
  * 
  */
 require("dotenv").config();

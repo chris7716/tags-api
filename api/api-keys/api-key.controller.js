@@ -1,16 +1,17 @@
 /**
- * @global
+ * This controller acts as the controller for requests coming into /api/key endpoints.
+ * @module api-key-controller
  */
 const {
     create
 } = require("./api-key.service");
 
 /**
- * This function handles API Key generation.
+ * This function works as the request controller for API Key generation.
+ * Requests for /api/key/create are recieved for this method
  * 
  * @param {Object} req Request coming from the client to the server.
  * @param {Object} res Response generated from server to the client.
- * @global
  */
 const createApiKey = (req, res) => {
     const email = req.query.email;
