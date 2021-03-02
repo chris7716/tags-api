@@ -7,6 +7,7 @@ const {
     create,
     createValue,
     getLastTagValueById,
+    listByCustomer,
 } = require("./tag.service");
 
 /**
@@ -32,7 +33,6 @@ const createTag = (req, res) => {
         description,
         currentTime,
     };
-    console.log(timestamp);
     create(data, (err, results) => {
         if (err) {
             return res.status(500).json({
@@ -93,7 +93,6 @@ const createTagValue = (req, res) => {
  * - res.message - Error message, if the operation is failed.
  */
 const getLastTagValue = (req, res) => {
-    console.log(req.route.path);
     const tagId = req.query.tagId;
     const value = req.query.value;
     const currentTime = new Date();
@@ -116,8 +115,41 @@ const getLastTagValue = (req, res) => {
     });
 }
 
+/**
+ * This function works as the request controller for listing Tags by Customer.
+ * API Key is extracted from the header and it is used as an identifier.
+ * Requests for /api/tag/list/by-customer are recieved for this method.
+ * 
+ * @param {Object} req Request coming from the client to the server.
+ * @param {Object} res Response generated from server to the client.
+ * @returns {Object} res Response to the client.
+ * - res.success - Whether the operation is success or nor.
+ * - res.data - Data of the customer's tags, if the operation is success.
+ * - res.message - Error message, if the operation is failed.
+ */
+const listTagsByCustomer = (req, res) => {
+    console.log("res");
+    const apiKey =req.header('x-api-key');
+    const data = {
+        apiKey,
+    };
+    listByCustomer(data, (err, results) => {
+        if (err) {
+            return res.status(500).json({
+            success: 0,
+            message: "Database connection errror"
+            });
+        }
+        return res.status(200).json({
+            success: 1,
+            data: results
+        });
+    });
+}
+
 module.exports = {
     createTag,
     createTagValue,
     getLastTagValue,
+    listTagsByCustomer,
 };

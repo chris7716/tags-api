@@ -9,11 +9,13 @@ const {
     createTagValidation,
     createTagValueValidation,
     getLastTagValueValidation,
+    listTagsByCustomerValidation,
  } = require("../../middleware/validator")
 const {
     createTag,
     createTagValue,
     getLastTagValue,
+    listTagsByCustomer,
  } = require("./tag.controller");
 
  /**
@@ -42,5 +44,14 @@ router.post("/create/value", validate(createTagValueValidation, {}, {}), Auth.va
  * @param {function} controllerFunction Function of the controller where the request should be routed into.
  */
 router.post("/get/value", validate(getLastTagValueValidation, {}, {}), Auth.validateRerquest,  getLastTagValue);
+
+/**
+ * This statement handles requests coming into /api/list/by-customer endpoint.
+ * 
+ * @param {string} path Path of the request. Here it is /list/by-customer.
+ * @param {function} validatoin Validation function for the request
+ * @param {function} controllerFunction Function of the controller where the request should be routed into.
+ */
+router.get("/list/by-customer", validate(listTagsByCustomerValidation, {}, {}), Auth.validateRerquest, listTagsByCustomer);
 
 module.exports = router;

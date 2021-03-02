@@ -4,6 +4,9 @@
  *
  */
 const pool = require('../../config/database');
+const {
+    getByApiKey
+} = require('../customers/customer.service'); 
 
 /**
  * This function performs Tag save functionalities.
@@ -98,9 +101,39 @@ const getLastTagValueById = (data, callBack) => {
     );
 }
 
+/**
+ * This function performs get tags by customer operation.
+ * First the customer is fetched using the API Key. With the use of fecthed customer data, 
+ * customer's tags are filtered.
+ * 
+ * @param {Object} data Data object with parameters from client that includes
+ * - data.apiKey - API Key of the customer extracted from header.
+ * @param {function} callBack Call back function to return data.
+ */
+const listByCustomer = (data, callBack) => {
+    getByApiKey(data, (err, results) => {
+      if (err) {
+        callBack(err);
+      }
+      let user = results[0];
+      console.log(user);
+      pool.query(
+        'select `tags`.* from (`tags` inner join `systems` on `tags`.`system_id`=`systems`.`id`) inner join `customers` on `systems`.`customer_id` = `customers`.`id` where `customers`.`id`=?',
+        user.id,
+        (error, results, fields) => {
+          if (error) {
+            callBack(error);
+          }
+          callBack(null, results);
+        }
+      );
+    })
+  }
+
 module.exports = {
     create,
     list,
     createValue,
     getLastTagValueById,
+    listByCustomer,
 };
