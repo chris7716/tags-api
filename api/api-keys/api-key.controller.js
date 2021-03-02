@@ -30,10 +30,17 @@ const createApiKey = (req, res) => {
      */
     create(data, (err, results) => {
         if (err) {
-            return res.status(500).json({
-            success: 0,
-            message: "Database connection errror"
-            });
+            if (err.code == "NO_USER_FOUND") {
+                return res.status(500).json({
+                    success: 0,
+                    message: "User not found"
+                    });
+            } else {
+                return res.status(500).json({
+                    success: 0,
+                    message: "Database connection errror"
+                    });
+            }
         }
         return res.status(200).json({
             success: 1,

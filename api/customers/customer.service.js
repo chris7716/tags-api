@@ -73,6 +73,7 @@ const getByEmail = (data, callBack) => {
  * @param {function} callBack Call back function to return data
  */
 const getByApiKey = (data, callBack) => {
+  console.log("results");
   pool.query(
     'select `customers`.* from (`customers` inner join `api_keys` on `api_keys`.`customer_id`=`customers`.`id`) where `api_keys`.`value`=?',
     data.apiKey,

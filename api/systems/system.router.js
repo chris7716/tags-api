@@ -39,6 +39,6 @@ router.get("/list", listSystems);
  * @param {function} validatoin Validation function for the request
  * @param {function} controllerFunction Function of the controller where the request should be routed into.
  */
-router.get("/list/by-customer", validate(listSystemByCustomerValidation, {}, {}), listSystemsByCustomer)
+router.get("/list/by-customer", validate(listSystemByCustomerValidation, {}, {}), Auth.validateRerquest, listSystemsByCustomer)
 
 module.exports = router;

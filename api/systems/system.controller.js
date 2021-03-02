@@ -82,6 +82,7 @@ const listSystems = (req, res) => {
  * - res.message - Error message, if the operation is failed.
  */
 const listSystemsByCustomer = (req, res) => {
+    console.log("res");
     const apiKey =req.header('x-api-key');
     const data = {
         apiKey,

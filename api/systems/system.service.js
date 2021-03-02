@@ -62,7 +62,7 @@ const list = (callBack) => {
 /**
  * This function performs get systems by customer operation.
  * First the customer is fetched using the API Key. With the use of fecthed customer data, 
- * system object is saved.
+ *  customer's systems are filtered.
  * 
  * @param {Object} data Data object with parameters from client that includes
  * - data.apiKey - API Key of the customer extracted from header.

@@ -23,25 +23,39 @@ const create = (data, callBack) => {
       if(error) {
           callBack(error);
       }
-      let user = results[0];
-      console.log(user);
-      data.value = uuidv4();
-      console.log(data);
-      pool.query(
-          `insert into api_keys(customer_id, value, assiged_ip, created_at) values(?,?,?,?)`,
-          [
-            user.id,
-            data.value,
-            data.ip,
-            data.createdAt
-          ],
-          (error, results, fields) => {
-            if (error) {
-              callBack(error);
+      if(results.length > 0) {
+        let user = results[0];
+        data.value = uuidv4();
+        pool.query(
+            `insert into api_keys(customer_id, value, assiged_ip, created_at) values(?,?,?,?)`,
+            [
+              user.id,
+              data.value,
+              data.ip,
+              data.createdAt
+            ],
+            (error, results, fields) => {
+              if (error) {
+                callBack(error);
+              }
+              pool.query(
+                `select * from api_keys where customer_id=? order by id desc limit 0,1`,
+                [
+                  user.id
+                ],
+                (error, results) => {
+                  if (error) {
+                    callBack(error);
+                  }
+                  callBack(null, results);
+                }
+              )
             }
-            callBack(null, results);
-          }
-        );
+          );
+      } else {
+        const code = "NO_USER_FOUND";
+        callBack({code});
+      }
   });
 }
 
