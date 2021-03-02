@@ -29,7 +29,6 @@ const validateRerquest = (req, response, next) => {
             let resLength = res.length;
             if(resLength > 0){
                 if (baseUrl == '/api/tag') {
-                    console.log(path);
                     if (path == '/create/value') {
                         // checks whether the tag belongs to user
                         const tagId = req.query.tagId;
@@ -96,6 +95,7 @@ const getCustomer = (data) => {
               if (error) {
                 reject(error);
               }
+              console.log(results);
               resolve(results);
             }
           );

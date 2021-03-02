@@ -243,6 +243,45 @@ const getLastTagValueValidation = {
 };
 
 /**
+ * Evaluates the validations for /api/tag/list/by-customer
+ */
+const listTagsByCustomerValidation = {
+  
+  headers: Joi.object({
+    'x-api-key': Joi.string()
+      .required(),
+    host: Joi.string()
+      .allow(),
+    connection: Joi.string()
+      .allow(),
+    'content-length': Joi.string()
+      .allow(),
+    'postman-token': Joi.string()
+      .allow(),
+    'cache-control': Joi.string()
+      .allow(),
+    'user-agent': Joi.string()
+      .allow(),
+    'content-type': Joi.string()
+      .allow(),
+    accept: Joi.string()
+      .allow(),
+    origin: Joi.string()
+      .allow(),
+    'sec-fetch-site': Joi.string()
+      .allow(),
+    'sec-fetch-mode': Joi.string()
+      .allow(),
+    'sec-fetch-dest': Joi.string()
+      .allow(),
+    'accept-encoding': Joi.string()
+      .allow(),
+    'accept-language': Joi.string()
+      .allow(),
+  })
+};
+
+/**
  * Evaluates the validations for /api/key/create
  */
 const createApiKeyValidatoin = {
@@ -264,4 +303,5 @@ module.exports = {
   createTagValueValidation,
   getLastTagValueValidation,
   createApiKeyValidatoin,
+  listTagsByCustomerValidation,
 };
