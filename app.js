@@ -15,11 +15,17 @@ const tagRouter = require("./api/tags/tag.router");
 const apiKeyRouter = require("./api/api-keys/api-key.router");
 
 /**
- * JSON and query params request bodies are allowed
- * from these configuratoins.
+ * JSON request bodies are allowed
+ * from this configuratoin.
  * 
  */
 app.use(express.json());
+
+/**
+ * Query params request bodies are allowed
+ * from these configuratoins.
+ * 
+ */
 app.use(express.urlencoded({
     extended: true
 }));
